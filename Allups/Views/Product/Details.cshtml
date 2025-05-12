@@ -1,0 +1,34 @@
+﻿@model Allups.DataAccessLayer.DataContext.Entities.Product
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "_Layout";
+}
+
+<div class="product-details-container">
+    <div class="product-image">
+        <img src="~/@Model.ImageUrl" alt="@Model.Name" class="img-fluid" />
+    </div>
+
+    <div class="product-info">
+        <h1 class="product-title">@Model.Name</h1>
+
+        <div class="product-price">
+            <span class="price-label">Price:</span>
+            <span class="price-value">@Model.Price.ToString("C")</span>
+        </div>
+
+        <div class="product-category">
+            <span class="category-label">Category:</span>
+            <span class="category-value">@Model.Category?.CategoryName</span>
+        </div>
+
+        <div class="product-description">
+            <p><strong>Description:</strong> Bir alan bir də alar.</p>
+        </div>
+
+        <div class="product-action">
+            <button class="btn btn-primary">Add to Cart</button>
+            <button class="btn btn-secondary">Add to Wishlist</button>
+        </div>
+    </div>
+</div>

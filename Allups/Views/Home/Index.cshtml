@@ -1,0 +1,22 @@
+﻿@model Allups.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="product-grid">
+    @foreach (var product in Model.Products)
+    {
+        <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="product-link">
+            <div class="product-card">
+                <img src="~/@product.ImageUrl" alt="@product.Name" />
+                <h3>@product.Name</h3>
+                <p class="price">@product.Price.ToString("C")</p>
+
+                <p class="category">Category: @product.Category?.CategoryName</p>
+
+                <button>Add to Cart</button>
+            </div>
+        </a>
+    }
+</div>
